@@ -11,7 +11,11 @@ const ProductListItem = ({product}: ProductListItemProps)=>{
     console.log(">>>>>>>>>",product);
     return (
       <View style={styles.container}>
-      <Image source={{uri:product.image || defaultImageUrl }} style={styles.image}/> 
+      <Image 
+      source={{uri:product.image || defaultImageUrl }} 
+      style={styles.image}
+      resizeMode='contain'
+      /> 
        <Text style={styles.title }>{product.name}</Text>
        <Text style = {styles.prize}>${product.price}</Text>
       </View>
@@ -28,9 +32,12 @@ const styles = StyleSheet.create({
     container: {
      backgroundColor: 'white',
      padding: 10,
+     margin: 5,
      borderRadius: 10,
-     display: 'flex',
-      
+     flex:1,
+     maxWidth: '50%',
+     justifyContent: 'flex-start',
+     flexDirection:'column',
     },
     title: { fontSize: 18 , fontWeight: '600' , marginVertical:10},
     prize: { color:Colors.light.tint},
@@ -38,7 +45,7 @@ const styles = StyleSheet.create({
       width:'100%',
       aspectRatio: 1 ,
       borderRadius: 10,
-      
+      padding: 12,
     }
    
   });
